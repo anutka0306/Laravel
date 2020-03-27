@@ -7,17 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class News extends Model
 {
     private static $news = [
-       1 => [
+       0 => [
            'id'=> 1,
            'title'=> 'News title 1',
            'text' => 'News text 1',
-           'cat' => 'sport'
+           'cat' => '1'
        ],
-       2 => [
+       1 => [
            'id'=> 2,
            'title'=> 'News title 2',
            'text' => 'News text 2',
-           'cat' => 'sport'
+           'cat' => '2'
        ],
     ];
 

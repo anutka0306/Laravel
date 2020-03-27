@@ -19,6 +19,7 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/news', 'NewsController@allNews')->name('Categories');
+Route::get('/news', 'NewsController@allNews')->name('News');
 Route::get('/news/{id}', 'NewsController@show')->name('NewsOne');
+Route::get('/category', 'NewsController@allCats')->name('Categories');
 
