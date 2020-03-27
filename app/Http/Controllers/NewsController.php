@@ -11,6 +11,6 @@ class NewsController extends Controller
         return view('news')->with('news', News::getNews());
     }
     public function show($id){
-        return view('new',['id'=>$id]);
+        return view('new')->with('news', News::getNewsId($id));
     }
 }

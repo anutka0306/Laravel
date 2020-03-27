@@ -21,6 +21,4 @@ Route::get('/about', function () {
 
 Route::get('/news', 'NewsController@allNews')->name('Categories');
 Route::get('/news/{id}', 'NewsController@show')->name('NewsOne');
-Route::get('/new', function () {
-    return view('new');
-});
+

@@ -24,11 +24,15 @@ class News extends Model
     public static function getNews(){
         return static::$news;
     }
-    public static function getNewsId($id){
-        foreach (static::$news as $news){
-            if($news['id']==$id){
-                return $news;
-            }
+    public static  function changeKeys($arr, $keyProp){
+        foreach ($arr as $key=>$value){
+            $result[$value[$keyProp]]=$value;
         }
+        return $result;
+    }
+
+    public static function getNewsId($id){
+        $newsResult = self::changeKeys(static::$news, 'id');
+        return $newsResult[$id];
     }
 }
