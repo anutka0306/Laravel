@@ -17,4 +17,7 @@ class NewsController extends Controller
     public function allCats(){
         return view('category')->with('categories', Categories::getCategories());
     }
+    public function catNews($cat){
+        return view('news')->with('news', News::getCatNews($cat));
+    }
 }

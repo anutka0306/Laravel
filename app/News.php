@@ -19,11 +19,40 @@ class News extends Model
            'text' => 'News text 2',
            'cat' => '2'
        ],
+        2 => [
+            'id'=> 3,
+            'title'=> 'News title 3',
+            'text' => 'News text 3',
+            'cat' => '2'
+        ],
+        3 => [
+            'id'=> 4,
+            'title'=> 'News title 4',
+            'text' => 'News text 4',
+            'cat' => '1'
+        ],
+        4 => [
+            'id'=> 5,
+            'title'=> 'News title 5',
+            'text' => 'News text 5',
+            'cat' => '1'
+        ],
     ];
 
     public static function getNews(){
         return static::$news;
     }
+
+    public static function getCatNews($cat){
+        $newsResult=[];
+        foreach (static:: $news as $new){
+            if($new['cat']==$cat){
+                $newsResult[]=$new;
+            }
+        }
+        return $newsResult;
+    }
+
     public static  function changeKeys($arr, $keyProp){
         foreach ($arr as $key=>$value){
             $result[$value[$keyProp]]=$value;
