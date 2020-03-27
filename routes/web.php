@@ -13,17 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/','HomeController@index')->name('Home');
 
 Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/news', function () {
-    return view('news');
-});
+Route::get('/news', 'NewsController@allNews')->name('Categories');
+Route::get('/news/{id}', 'NewsController@show')->name('NewsOne');
 Route::get('/new', function () {
     return view('new');
 });

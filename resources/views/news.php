@@ -35,41 +35,21 @@
 <div class="content">
     <h1>NEWS!</h1>
     <div class="news-wrap">
+        <?php
+        foreach ($news as $item):
+        ?>
         <div class="news-item">
-            <a href="new"><h2>New's title</h2></a>
+            <a href="<?=route('NewsOne', $item['id']);?>"><h2><?=$item['title']?></h2></a>
             <a href="new">
                 <img src="http://www.newsfiber.com/thumb/20200322-0DDA66BEB44922A4-0-1-5631490A-361A3CE16D200414.jpeg" alt="New Image">
             </a>
             <div class="new-item__description">
-                New Item description. New Item description.
-                New Item description. New Item description.
-                New Item description. New Item description.
+                <?=$item['text']?>
             </div>
         </div>
-
-        <div class="news-item">
-            <a href="new"><h2>New's title</h2></a>
-            <a href="new">
-                <img src="http://www.newsfiber.com/thumb/20200322-0DDA66BEB44922A4-0-1-5631490A-361A3CE16D200414.jpeg" alt="New Image">
-            </a>
-            <div class="new-item__description">
-                New Item description. New Item description.
-                New Item description. New Item description.
-                New Item description. New Item description.
-            </div>
-        </div>
-
-        <div class="news-item">
-            <a href="new"><h2>New's title</h2></a>
-            <a href="new">
-                <img src="http://www.newsfiber.com/thumb/20200322-0DDA66BEB44922A4-0-1-5631490A-361A3CE16D200414.jpeg" alt="New Image">
-            </a>
-            <div class="new-item__description">
-                New Item description. New Item description.
-                New Item description. New Item description.
-                New Item description. New Item description.
-            </div>
-        </div>
+        <?php
+        endforeach;
+        ?>
     </div>
 </div>
 </body>
