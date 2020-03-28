@@ -19,4 +19,14 @@ class Categories extends Model
     public static function getCategories(){
         return static::$categories;
     }
+    public static  function changeKeys($arr, $keyProp){
+        foreach ($arr as $key=>$value){
+            $result[$value[$keyProp]]=$value;
+        }
+        return $result;
+    }
+    public static function getNewsCat($cat){
+        $catResult = self::changeKeys(static::$categories, 'id');
+        return $catResult[$cat];
+    }
 }

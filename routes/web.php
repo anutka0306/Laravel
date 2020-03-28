@@ -20,7 +20,7 @@ Route::get('/about', function () {
 });
 
 Route::get('/news', 'NewsController@allNews')->name('News');
-//Route::get('/news/{id}', 'NewsController@show')->name('NewsOne');
+Route::get('/news/{cat}/{id}', 'NewsController@show')->name('NewsOne');
 Route::get('/category', 'NewsController@allCats')->name('Categories');
 Route::get('/news/{cat}', 'NewsController@catNews')->name('CatNews');
 

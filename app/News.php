@@ -61,7 +61,8 @@ class News extends Model
     }
 
     public static function getNewsId($id){
-        $newsResult = self::changeKeys(static::$news, 'id');
-        return $newsResult[$id];
+    $newsResult = self::changeKeys(static::$news, 'id');
+    return $newsResult[$id];
     }
+
 }
