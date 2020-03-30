@@ -24,3 +24,11 @@ Route::get('/news/{cat}/{id}', 'NewsController@show')->name('NewsOne');
 Route::get('/category', 'NewsController@allCats')->name('Categories');
 Route::get('/news/{cat}', 'NewsController@catNews')->name('CatNews');
 
+Route::group([
+    'prefix'=>'admin',
+    'namespace'=>'Admin',
+    'as'=>'admin.'
+], function (){
+    Route::get('/','IndexController@index')->name('index');
+});
+
