@@ -29,4 +29,15 @@ class Categories extends Model
         $catResult = self::changeKeys(static::$categories, 'id');
         return $catResult[$cat];
     }
+
+    public static function getCategoryIdByName($name){
+        $id = null;
+        foreach(static::$categories as $category){
+            if($category['name']==$name){
+                $id = $category['id'];
+            }
+        }
+        return $id;
+    }
+
 }

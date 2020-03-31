@@ -8,9 +8,9 @@
 </head>
 <body>
 <nav>
-    <?php
-    include 'main_menu.php';
-    ?>
+
+    @include('main_menu')
+
 </nav>
 
 <div class="content">

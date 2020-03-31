@@ -11,31 +11,31 @@ class News extends Model
            'id'=> 1,
            'title'=> 'News title 1',
            'text' => 'News text 1',
-           'cat' => '1'
+           'cat_id' => '1'
        ],
        1 => [
            'id'=> 2,
            'title'=> 'News title 2',
            'text' => 'News text 2',
-           'cat' => '2'
+           'cat_id' => '2'
        ],
         2 => [
             'id'=> 3,
             'title'=> 'News title 3',
             'text' => 'News text 3',
-            'cat' => '2'
+            'cat_id' => '2'
         ],
         3 => [
             'id'=> 4,
             'title'=> 'News title 4',
             'text' => 'News text 4',
-            'cat' => '1'
+            'cat_id' => '1'
         ],
         4 => [
             'id'=> 5,
             'title'=> 'News title 5',
             'text' => 'News text 5',
-            'cat' => '1'
+            'cat_id' => '1'
         ],
     ];
 
@@ -51,6 +51,17 @@ class News extends Model
             }
         }
         return $newsResult;
+    }
+
+    public static function getNewsByCategoryName($name){
+        $id = Categories::getCategoryIdByName($name);
+        $news = [];
+        foreach (static::$news as $item){
+           if($item['cat_id'] == $id){
+               $news[] = $item;
+           }
+        }
+        return $news;
     }
 
     public static  function changeKeys($arr, $keyProp){
