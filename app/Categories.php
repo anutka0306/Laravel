@@ -9,11 +9,13 @@ class Categories extends Model
     private static $categories = [
         0 => [
             'id'=> 1,
-            'name' => 'sport'
+            'name' => 'Спорт',
+            'slug'=>'sport'
         ],
         1 => [
             'id'=> 2,
-            'name' => 'economic'
+            'name' => 'Экономика',
+            'slug'=>'economic'
         ],
     ];
     public static function getCategories(){
@@ -29,4 +31,32 @@ class Categories extends Model
         $catResult = self::changeKeys(static::$categories, 'id');
         return $catResult[$cat];
     }
+
+    public static function getCategoryIdBySlug($slug){
+        $id = null;
+        foreach(static::$categories as $category){
+            if($category['slug']==$slug){
+                $id = $category['id'];
+            }
+        }
+        return $id;
+    }
+
+    public static function getCategoryNameBySlug($slug){
+        $name = null;
+        foreach (static::$categories as $category){
+            if($category['slug']==$slug){
+                $name = $category['name'];
+            }
+        }
+        return $name;
+    }
+
+    public static function getCategoryNameById($id){
+        $name = null;
+        $categoriesArr = self::changeKeys(static::$categories, 'id');
+        $name = $categoriesArr[$id]['name'];
+       return $name;
+    }
+
 }

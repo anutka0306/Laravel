@@ -19,8 +19,28 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/news', 'NewsController@allNews')->name('News');
-Route::get('/news/{cat}/{id}', 'NewsController@show')->name('NewsOne');
-Route::get('/category', 'NewsController@allCats')->name('Categories');
-Route::get('/news/{cat}', 'NewsController@catNews')->name('CatNews');
+Route::group([
+    'prefix'=>'news',
+    'as'=>'news.'
+    ], function (){
+    Route::get('/', 'NewsController@index')->name('index');
+    Route::get('/one/{id}', 'NewsController@show')->name('show');
+    Route::group([
+        'as'=>'category.'
+    ],
+        function (){
+            Route::get('/categories', 'CategoryController@index')->name('index');
+            Route::get('/category/{name}', 'CategoryController@show')->name('show');
+        });
+});
+
+Route::group([
+    'prefix'=>'admin',
+    'namespace'=>'Admin',
+    'as'=>'admin.'
+], function (){
+    Route::get('/','IndexController@index')->name('index');
+});
+
+
 

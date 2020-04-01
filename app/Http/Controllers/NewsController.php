@@ -8,18 +8,14 @@ use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
-    public function allNews(){
-        return view('news')->with('news', News::getNews());
+    public function index(){
+        return view('news.news')->with('news', News::getNews());
     }
-    public function show($cat,$id){
-        return view('new')->with([
-        'cat'=>Categories::getNewsCat($cat),
-        'news'=> News::getNewsId($id)]);
+    public function show($id){
+        return view('news.new')->with([
+        'news'=> News::getNewsId($id),
+         'category_name'=>News::getCategoryNameByNewId($id),
+            ]);
     }
-    public function allCats(){
-        return view('category')->with('categories', Categories::getCategories());
-    }
-    public function catNews($cat){
-        return view('news')->with('news', News::getCatNews($cat));
-    }
+
 }
