@@ -43,18 +43,9 @@ class News extends Model
         return static::$news;
     }
 
-    public static function getCatNews($cat){
-        $newsResult=[];
-        foreach (static:: $news as $new){
-            if($new['cat']==$cat){
-                $newsResult[]=$new;
-            }
-        }
-        return $newsResult;
-    }
 
-    public static function getNewsByCategoryName($name){
-        $id = Categories::getCategoryIdByName($name);
+    public static function getNewsByCategorySlug($slug){
+        $id = Categories::getCategoryIdBySlug($slug);
         $news = [];
         foreach (static::$news as $item){
            if($item['cat_id'] == $id){
@@ -62,6 +53,13 @@ class News extends Model
            }
         }
         return $news;
+    }
+
+    public static function getCategoryNameByNewId($id){
+        $newsResult = self::changeKeys(static::$news, 'id');
+        $new =  $newsResult[$id];
+        $cat_id = $new['cat_id'];
+        return Categories::getCategoryNameById($cat_id);
     }
 
     public static  function changeKeys($arr, $keyProp){

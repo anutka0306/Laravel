@@ -35,8 +35,8 @@
     <div class="news-wrap">
         @foreach ($news as $item)
         <div class="news-item">
-            <a href="{{ route('NewsOne',[$item['id']]) }}"><h2>{{ $item['title'] }}</h2></a>
-            <a href="new">
+            <a href="{{ route('news.show',[$item['id']]) }}"><h2>{{ $item['title'] }}</h2></a>
+            <a href="{{ route('news.show',[$item['id']]) }}">
                 <img src="http://www.newsfiber.com/thumb/20200322-0DDA66BEB44922A4-0-1-5631490A-361A3CE16D200414.jpeg" alt="New Image">
             </a>
             <div class="new-item__description">
