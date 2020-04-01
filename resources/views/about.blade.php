@@ -1,18 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>О компании</title>
-    <meta name="keywords" content="Ключевые слова, и, фразы, через, запятую">
-    <meta name="description" content="Описание контента страницы, 1-2 предложения.">
-</head>
-<body>
-<nav>
+@extends('layouts.main')
+
+@section('title')
+    @parent About Us
+@endsection
+
+@section('menu')
     @include('main_menu')
+@endsection
 
-</nav>
+@section('content')
+    <div class="content">
+        <h1>ABOUT US!</h1>
+    </div>
+@endsection
 
-<div class="content">
-    <h1>ABOUT US!</h1>
-</div>
-</body>
+

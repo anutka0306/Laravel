@@ -1,19 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Главная</title>
-    <meta name="keywords" content="Ключевые слова, и, фразы, через, запятую">
-    <meta name="description" content="Описание контента страницы, 1-2 предложения.">
-</head>
-<body>
-<nav>
+@extends('layouts.main')
 
+@section('title')
+   @parent Главная
+@endsection
+
+@section('menu')
     @include('main_menu')
+@endsection
 
-</nav>
+@section('content')
+<h1>Hello, people!</h1>
+@endsection
 
-<div class="content">
-    <h1>HELLO, PEOPLE!</h1>
-</div>
-</body>
+
