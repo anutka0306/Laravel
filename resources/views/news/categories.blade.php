@@ -38,8 +38,8 @@
         @foreach ($categories as $item)
 
         <div class="news-item">
-            <a href="{{ route('CatNews', $item['slug']) }}"><h2>{{ $item['name'] }}</h2></a>
-            <a href=" {{ route('CatNews', $item['slug']) }}">
+            <a href="{{ route('news.category.show', $item['slug']) }}"><h2>{{ $item['name'] }}</h2></a>
+            <a href=" {{ route('news.category.show', $item['slug']) }}">
                 <img src="http://www.newsfiber.com/thumb/20200322-0DDA66BEB44922A4-0-1-5631490A-361A3CE16D200414.jpeg" alt="New Image">
             </a>
 
